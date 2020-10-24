@@ -30,9 +30,6 @@ namespace StacksAndQueueMSTest
             int expected = 45;
             //Assert
             Assert.AreEqual(expected, actual);
-
-            
-
         }
     }
 }
