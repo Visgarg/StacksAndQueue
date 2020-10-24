@@ -4,7 +4,7 @@ using System.Text;
 
 namespace StacksAndQueues
 {
-    class Queue
+    public class Queue
     {
         //creating the node head
         public Node head;
@@ -19,7 +19,7 @@ namespace StacksAndQueues
             Node temp = head;
             //if head is null,first value of node is addressed to head
             //head contains the address of first element
-            if(head==null)
+            if (head == null)
             {
                 head = node;
             }
@@ -39,7 +39,7 @@ namespace StacksAndQueues
         /// <returns>temp is returned with reference to last node</returns>
         public Node GetLastNode(Node temp)
         {
-            if(temp.next != null)
+            if (temp.next != null)
             {
                 temp = temp.next;
             }
@@ -65,6 +65,46 @@ namespace StacksAndQueues
                     Console.WriteLine(temp.data);
                     temp = temp.next;
                 }
+            }
+        }
+        /// <summary>
+        /// Displaying first element in the queue
+        /// </summary>
+        /// <returns></returns>
+        public int QueuePeek()
+        {
+            if (head == null)
+            {
+                Console.WriteLine("Empty Queue");
+            }
+            
+            Console.WriteLine("Peek method for queue");
+            Console.WriteLine(head.data);
+            return head.data;
+        }
+        /// <summary>
+        /// removing 1st element from the queue
+        /// </summary>
+        public void Dequeue()
+        {
+            if (head == null)
+            {
+                Console.WriteLine("Empty Queue");
+            }
+            //passing the address of 2nd element to the head, hence head will directly point to 2nd element and 1st element is abandoned.
+            head = head.next;
+            DisplayQueue();
+            
+
+        }
+        public void IsEmptyQueue()
+        {
+            Node temp = head;
+            while(temp!= null)
+            {
+                QueuePeek();
+                Dequeue();
+                temp = temp.next;
             }
         }
     }
